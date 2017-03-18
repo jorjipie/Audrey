@@ -34,10 +34,20 @@
   <p>
     <strong>Properties</strong>
     <table>
+      <thead>
+        <tr>
+          <th>Order</th>
+          <th>Name</th>
+          <th>Type</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
       <tbody>
-        <% @project.properties.each do |p| %>
+        <% @properties.each do |p| %>
           <tr>
+              <td><%= p.order %></td>
               <td><%= p.name %></td>
+              <td><%= p.property_type.name %></td>
               <td><%= link_to 'Show', p %></td>
               <td><%= link_to 'Edit', edit_property_path(p) %></td>
               <td><%= link_to 'Destroy', p, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -45,6 +55,32 @@
         <% end %>
       </tbody>
     </table>
+  </p>
+  <p>
+    <table>
+      <thead>
+        <tr>
+          <% @properties.each do |p| %>
+            <th><%= p.name %></th>
+          <% end %>
+          <th>File</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @project.items.each do |item| %>
+          <tr>
+            <% @properties.each do |p| %>
+              <td>
+                <input type="text" />
+              </td>
+            <% end %>
+              <td>
+                <input type="file" />
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
   </p>
 <% end %>
 

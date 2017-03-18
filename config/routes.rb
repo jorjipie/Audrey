@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :property_types
   resources :items
   resources :properties
   resources :projects
